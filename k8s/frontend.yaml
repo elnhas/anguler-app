@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: mohamedelnhas018/angular-frontend:1.0   
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80        # البورت اللي السيرفس هيتعرض بيه
+      targetPort: 80  # البورت اللي البود شغال عليه
+  type: ClusterIP      # يفضل تغييره لـ NodePort أو LoadBalancer عشان توصل من بره
+
