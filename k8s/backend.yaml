@@ -30,6 +30,8 @@ spec:
     app: backend
   ports:
     - protocol: TCP
-      port: 3000        
-      targetPort: 3000  
-  type: ClusterIP       
+      port: 3000         # البورت اللي هيبان داخل الكلاستر
+      targetPort: 3000   # البورت جوه الـ Pod
+      nodePort: 32000    # البورت اللي هتفتحيه من النود (ممكن تختاري أي رقم من 30000-32767)
+  type: NodePort
+

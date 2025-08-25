@@ -9,7 +9,7 @@ export class BackendService {
 
   constructor(private http:HttpClient) { }
 
-  private API_URL = 'http://192.168.1.14:3000'
+  private API_URL = 'http://192.168.1.14:32000'
 
   getMessage(): Observable<{ message: string }> {
     return this.http.get<{ message: string }>(`${this.API_URL}`);

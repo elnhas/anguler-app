@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: mohamedelnhas018/angular-frontend:1.0   
+          image: mohamedelnhas018/anguler-frontend:1.1
           ports:
             - containerPort: 80
 
@@ -30,7 +30,8 @@ spec:
     app: frontend
   ports:
     - protocol: TCP
-      port: 80        # البورت اللي السيرفس هيتعرض بيه
-      targetPort: 80  # البورت اللي البود شغال عليه
-  type: ClusterIP      # يفضل تغييره لـ NodePort أو LoadBalancer عشان توصل من بره
+      port: 80
+      targetPort: 80
+      #nodePort: 30080   # أي رقم في range (30000–32767)
+  #type: NodePort
 
